@@ -1,3 +1,7 @@
+eval "$(docker-machine env dev)"
+
+export ANDROID_HOME=/usr/local/opt/android-sdk
+
 PATH=/usr/local/heroku/bin:$PATH
 export PATH=$PATH
 
