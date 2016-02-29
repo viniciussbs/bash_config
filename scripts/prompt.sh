@@ -60,11 +60,27 @@ __wesolve_prompt () {
     RUBY_PROMPT="${RED}ruby: ${RUBY_VERSION}${RAILS_PROMPT}${NO_COLOR}"
   fi
 
+  # Node version
+  local NODE_VERSION=""
+  local NODE_PROMPT=""
+
+  if [ -f app.js ] || [ -f server.js ]; then
+    NODE_VERSION=`node -v`
+
+    if [[ "$EXPRESS_VERSION" ]]; then
+      local EXPRESS_PROMPT=", express: ${EXPRESS_VERSION}"
+    fi
+
+    NODE_PROMPT="${BLUE}node: ${NODE_VERSION}${EXPRESS_PROMPT}${NO_COLOR}"
+  fi
+
   # Current language
   local LANG_PROMPT=""
 
   if [ "$ELIXIR_PROMPT" != "" ]; then
     LANG_PROMPT="${ELIXIR_PROMPT}"
+  elif [ "$NODE_PROMPT" != "" ]; then
+    LANG_PROMPT="${NODE_PROMPT}"
   elif [ "$RUBY_PROMPT" != "" ]; then
     LANG_PROMPT="${RUBY_PROMPT}"
   fi
