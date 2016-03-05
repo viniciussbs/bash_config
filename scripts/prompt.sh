@@ -64,7 +64,7 @@ __wesolve_prompt () {
   local NODE_VERSION=""
   local NODE_PROMPT=""
 
-  if [ -f app.js ] || [ -f server.js ]; then
+  if [ -f package.json ] || [ -f bower.json ]; then
     NODE_VERSION=`node -v`
 
     if [[ "$EXPRESS_VERSION" ]]; then
