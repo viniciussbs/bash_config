@@ -5,6 +5,6 @@ alias preview="open -a Preview"
 alias md="open -a MacDown"
 
 # alias to open repos
-for repo in $(ls ~/src); do
+for repo in $(ls ~/Projects); do
   alias "r-$repo"="repo open $repo"
 done

@@ -12,12 +12,12 @@ _repo() {
 
   case "${prev}" in
     o|open)
-      local repos=$(ls ~/src)
+      local repos=$(ls ~/Projects)
       COMPREPLY=( $(compgen -W "${repos}" -- ${cur}) )
       return 0
       ;;
     rm|remove)
-      local repos=$(ls ~/src)
+      local repos=$(ls ~/Projects)
       COMPREPLY=( $(compgen -W "${repos}" -- ${cur}) )
       return 0
       ;;
@@ -41,19 +41,19 @@ _repo() {
 repo() {
   case "$1" in
     path)
-      echo "$HOME/src"
+      echo "$HOME/Projects"
       return 0
       ;;
     l|ls|list)
-      \ls -1 ~/src
+      \ls -1 ~/Projects
       return 0
       ;;
     o|open)
-      cd ~/src/$2
+      cd ~/Projects/$2
       return 0
       ;;
 		n|new)
-		  mkdir -p ~/src/$2
+		  mkdir -p ~/Projects/$2
 			repo o $2
 			return 0
 			;;
@@ -62,7 +62,7 @@ repo() {
         read -r -p "Remove repo $2? [yes/no] " response
         case $response in
           [yY][eE][sS])
-            rm -rf ~/src/$2
+            rm -rf ~/Projects/$2
             echo "Repo $2 removed."
             ;;
           *)
@@ -72,7 +72,7 @@ repo() {
       return 0
       ;;
     c|clone)
-      cd ~/src
+      cd ~/Projects
       git clone $2 $3
       local repo
       if [[ "$3" != '' ]]; then
