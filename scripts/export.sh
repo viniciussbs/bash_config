@@ -1,6 +1,7 @@
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
 PATH=/usr/local/heroku/bin:$PATH
+PATH=~/.bash.d/scripts/utilities:$PATH
 export PATH=$PATH
 
 export EDITOR="nano"
