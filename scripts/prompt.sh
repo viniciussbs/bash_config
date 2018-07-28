@@ -77,12 +77,12 @@ __wesolve_prompt () {
     fi
 
     PS1="
-${LIGHT_CYAN}│ ${BASE_COLOR}\w\a${NO_COLOR} ${PROMPT_COLOR}${BRANCH}${NO_COLOR}${STATE}
-${LIGHT_CYAN}│ ${NO_COLOR}\$ "
+${LIGHT_CYAN}${BASE_COLOR}\w\a${NO_COLOR} ${PROMPT_COLOR}${BRANCH}${NO_COLOR}${STATE}
+${LIGHT_CYAN}${NO_COLOR}\$ "
   else
     PS1="
-${LIGHT_CYAN}│ ${BASE_COLOR}\w\a
-${LIGHT_CYAN}│ ${NO_COLOR}\$ "
+${LIGHT_CYAN}${BASE_COLOR}\w\a
+${LIGHT_CYAN}${NO_COLOR}\$ "
   fi
 }
 
