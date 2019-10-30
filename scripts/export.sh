@@ -1,4 +1,5 @@
 export ANDROID_HOME=/usr/local/opt/android-sdk
+export ES_JAVA_OPTS="-Xms2g -Xmx2g"
 
 PATH=/usr/local/heroku/bin:$PATH
 PATH=~/.bash.d/scripts/utilities:$PATH
