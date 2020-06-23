@@ -1,6 +1,6 @@
 # reload source
 reload() {
-  source ~/.bash_profile;
+  source ~/.bashrc;
 }
 
 _repo() {
@@ -12,12 +12,12 @@ _repo() {
 
   case "${prev}" in
     o|open)
-      local repos=$(ls ~/Projects)
+      local repos=$(ls ~/code)
       COMPREPLY=( $(compgen -W "${repos}" -- ${cur}) )
       return 0
       ;;
     rm|remove)
-      local repos=$(ls ~/Projects)
+      local repos=$(ls ~/code)
       COMPREPLY=( $(compgen -W "${repos}" -- ${cur}) )
       return 0
       ;;
@@ -41,28 +41,28 @@ _repo() {
 repo() {
   case "$1" in
     path)
-      echo "$HOME/Projects"
+      echo "$HOME/code"
       return 0
       ;;
     l|ls|list)
-      \ls -1 ~/Projects
+      \ls -1 ~/code
       return 0
       ;;
     o|open)
-      cd ~/Projects/$2
+      cd ~/code/$2
       return 0
       ;;
-		n|new)
-		  mkdir -p ~/Projects/$2
-			repo o $2
-			return 0
-			;;
+    n|new)
+      mkdir -p ~/code/$2
+      repo o $2
+      return 0
+      ;;
     rm|remove)
       if [[ "$2" != '' ]]; then
         read -r -p "Remove repo $2? [yes/no] " response
         case $response in
           [yY][eE][sS])
-            rm -rf ~/Projects/$2
+            rm -rf ~/code/$2
             echo "Repo $2 removed."
             ;;
           *)
@@ -72,7 +72,7 @@ repo() {
       return 0
       ;;
     c|clone)
-      cd ~/Projects
+      cd ~/code
       git clone $2 $3
       local repo
       if [[ "$3" != '' ]]; then

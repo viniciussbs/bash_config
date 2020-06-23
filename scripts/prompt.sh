@@ -76,14 +76,14 @@ __wesolve_prompt () {
       STATE="${STATE}${ORANGE}*${NO_COLOR}"
     fi
 
-    PS1="
+    export PS1="
 ${LIGHT_CYAN}${BASE_COLOR}\u@\h \w\a${NO_COLOR} ${PROMPT_COLOR}${BRANCH}${NO_COLOR}${STATE}
 ${LIGHT_CYAN}${NO_COLOR}\$ "
   else
-    PS1="
+    export PS1="
 ${LIGHT_CYAN}${BASE_COLOR}\u@\h \w\a
 ${LIGHT_CYAN}${NO_COLOR}\$ "
   fi
 }
 
-PROMPT_COMMAND=__wesolve_prompt
+export PROMPT_COMMAND=__wesolve_prompt
